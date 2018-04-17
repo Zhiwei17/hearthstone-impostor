@@ -1,27 +1,26 @@
 // Documento JavaScript
-$(document).ready(function () {
 
 
 
-
-});
 $(function () {
-    $("#draggable").draggable({
-
+    $(".carta").draggable({
         containment: 'window',
         revert: "invalid",
         appendTo: 'body',
-        scroll: false,
-
+        scroll: false
     });
+
     
-    $("#mimesa").droppable({
+    $(".slop").droppable({
         drop: function (event, ui) {
-            
+            ui.draggable.draggable('disable');
+            ui.draggable.position({ of: $(this),
+                my: 'center bottom',
+                at: 'center bottom'
+            });
+        $(this).droppable({disabled: true});
         }
     });
-    
-    
-    
-});
 
+
+});
